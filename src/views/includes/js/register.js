@@ -1,20 +1,25 @@
-const loginForm = document.querySelector('.login')
+const registerForm = document.querySelector('.register')
 const usernameInput = document.querySelector('.usernameInput')
+const emailInput = document.querySelector('.emailInput')
 const passwordInput = document.querySelector('.passwordInput')
+
 
 class User {
     Username 
+    Email 
     Password 
     
-    constructor(username, password, ){
+    constructor(username, email , password, ){
         this.Username = username 
-        this.Password = password
+        this.Email = email 
+        this.Password = password      
     }
 }
-loginForm.addEventListener('submit', (e) => {
+
+registerForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const user = new User (usernameInput,passwordInput)
-    fetch("http://localhost:3030/myapp/login", {
+    const user = new User (usernameInput,emailInput,passwordInput)
+    fetch("http://localhost:3030/myapp/register", {
           method: 'POST',
           mode: 'cors',
           cache: 'no-cache',
@@ -29,7 +34,6 @@ loginForm.addEventListener('submit', (e) => {
         return res.json()
       }).then(data => {
         console.log(data)
-      }).catch(console.log(error.Message))
-
-
+      }).catch(alert(error.Message))
 })
+
