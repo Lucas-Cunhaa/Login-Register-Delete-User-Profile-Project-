@@ -18,8 +18,14 @@ class User {
 
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const user = new User (usernameInput,emailInput,passwordInput)
-    fetch("http://localhost:3030/myapp/register", {
+    const username = usernameInput.value;
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    const user = new User(username, email, password);
+
+
+    try{fetch("http://localhost:3030/myapp/register", {
           method: 'POST',
           mode: 'cors',
           cache: 'no-cache',
@@ -34,6 +40,16 @@ registerForm.addEventListener('submit', (e) => {
         return res.json()
       }).then(data => {
         console.log(data)
-      }).catch(alert(error.Message))
+      }).catch(error => {
+        showErrorAlert(error.message)
+      })
+
+   
+  }catch(error){
+    showErrorAlert(error.message)
+  }
+  function showErrorAlert(message) {
+    alert(message);
+}
 })
 

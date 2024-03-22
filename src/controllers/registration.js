@@ -5,19 +5,17 @@ exports.postUser = (req, res) => {
     try{
         console.log("API POST USER")
         const { Username, Email, } = req.body; 
+
+        if(users.find(element => element.Username === Username  || element.Email === Email)) {
+            return res.status(409).json({ error: 'Username or Email alredy exist.' });
+            } 
         const id = ++lastId
         const user =  { Username, Email, id }
-        
-        
-        if(users.find(element => element.Username === Username  || element.Email === Email)) {
-             throw new Error('Username or email alredy exists')
-            } 
-            
         users.push(user)
 
-        res.status(200).send(newForm)
+        res.status(200).send(user)
         
     } catch(error) {
-        res.status(404).send(error.message)
+        return res.status(500).json({ error: 'O usuário já existe.' });
     }
 }
