@@ -13,7 +13,7 @@ class User {
 }
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const user = new User (usernameInput,passwordInput)
+    const user = new User (usernameInput.value, passwordInput.value)
     fetch("http://localhost:3030/myapp/login", {
           method: 'POST',
           mode: 'cors',
@@ -29,7 +29,9 @@ loginForm.addEventListener('submit', (e) => {
         return res.json()
       }).then(data => {
         console.log(data)
-      }).catch(console.log(error.Message))
+      }).catch( error => {
+        console.log(error)
+      })
 
 
 })

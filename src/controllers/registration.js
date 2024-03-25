@@ -1,4 +1,4 @@
-let users = [];
+let users = []
 let lastId = 0 
 exports.postUser = (req, res) => {
     

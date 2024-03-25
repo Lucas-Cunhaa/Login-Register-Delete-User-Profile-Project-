@@ -46,10 +46,8 @@ registerForm.addEventListener('submit', (e) => {
 
    
   }catch(error){
-    showErrorAlert(error.message)
+    alert(error);
   }
-  function showErrorAlert(message) {
-    alert(message);
-}
+  
 })
 
