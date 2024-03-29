@@ -1,4 +1,4 @@
-
+const User = require('./user')
 let users = []
 let lastId = 0 
 
@@ -25,13 +25,15 @@ exports.postUser = (req, res) => {
     
     try{
         console.log("API POST USER")
-        const { Username, Email, Password } = req.body; 
+        const  { Username, Email, Password } = req.body; 
+
 
         if(users.find(element => element.Username === Username  || element.Email === Email)) {
             return res.status(409).json({ error: 'Username or Email alredy exist.' });
             } 
+            
         const id = ++lastId
-        const user =  { Username, Email, Password, id }
+        const user =  new User(id , Username , Email, Password)
         users.push(user)
 
         res.status(200).send(user)
