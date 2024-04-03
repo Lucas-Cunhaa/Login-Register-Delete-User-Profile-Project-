@@ -28,7 +28,9 @@ loginForm.addEventListener('submit', (e) => {
       }).then(res => {
         return res.json()
       }).then(data => {
-        console.log(data)
+        if( data.message === 'User found'){
+          window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
+        }
       }).catch( error => {
         console.log(error)
       })

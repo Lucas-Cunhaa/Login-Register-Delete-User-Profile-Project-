@@ -2,8 +2,6 @@ const registerForm = document.querySelector('.register')
 const usernameInput = document.querySelector('.usernameInput')
 const emailInput = document.querySelector('.emailInput')
 const passwordInput = document.querySelector('.passwordInput')
-
-
 class User {
     Username 
     Email 
@@ -15,7 +13,6 @@ class User {
         this.Password = password      
     }
 }
-
 registerForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const username = usernameInput.value;
@@ -43,9 +40,5 @@ registerForm.addEventListener('submit', (e) => {
       }).catch(error => {
         console.log(error)
       })
-
-   
- 
-  
 })
 
