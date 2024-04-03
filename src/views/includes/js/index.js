@@ -5,7 +5,6 @@ const passwordInput = document.querySelector('.passwordInput')
 class User {
     Username 
     Password 
-    
     constructor(username, password, ){
         this.Username = username 
         this.Password = password
@@ -14,6 +13,7 @@ class User {
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const user = new User (usernameInput.value, passwordInput.value)
+    console.log(user)
     fetch("http://localhost:3030/myapp/login", {
           method: 'POST',
           mode: 'cors',

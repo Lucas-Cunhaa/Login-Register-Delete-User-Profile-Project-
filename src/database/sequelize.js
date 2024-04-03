@@ -1,15 +1,15 @@
 const Sequelize = require("sequelize");
-const {DataTypes} = Sequelize
+const { DataTypes } = Sequelize;
 const sequelize = new Sequelize("userapp", "root", "12345", {
   dialect: "mysql",
 });
 
-const User = sequelize.define('user', {
+const User = sequelize.define("user", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     autoIncrement: true,
-    primaryKey: true
+    primaryKey: true,
   },
   username: {
     type: DataTypes.STRING,
@@ -22,14 +22,13 @@ const User = sequelize.define('user', {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
+  },
 });
 
 class Db {
-
   constructor(sequelize) {
-    
-    this.connectDatabase()
+    this.connectDatabase();
+    this.syncDatabase();
   }
 
   async connectDatabase() {
@@ -40,56 +39,40 @@ class Db {
       console.error(error);
     }
   }
+  async syncDatabase() {
+    try {
+      await User.sync({ alter: true });
+    } catch (error) {
+      console.error("Unable to connect to the database", error);
+    }
+  }
   async addUser(myUsername, myEmail, myPassword) {
     try {
-     
-
-      await User.sync({ alter: true });
       const user = User.build({
         username: myUsername,
         email: myEmail,
-        password: myPassword
+        password: myPassword,
       });
       console.log(user.toJSON());
       return user.save();
-
     } catch (error) {
       console.error(error);
     }
   }
 
-  async findUser() {
+  async findUser(myUsername, myPassword) {
     try {
-      const User = sequelize.define('user', {
-        id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true
-        },
-        username: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        email: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        password: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        }
-      });
-
-      await User.sync({ alter: true });
-      const data = await User.findAll();
+      const data = await User.findAll({ where: { username: myUsername, password: myPassword } });
+      
       data.forEach((element) => {
         console.log(element.toJSON());
+        
       });
+      return data
     } catch (error) {
-      console.error(error);
+      console.error('Error while finding user:', error);
     }
   }
+  
 }
-
-module.exports = Db
+module.exports = Db;
