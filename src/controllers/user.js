@@ -1,14 +1,11 @@
 class User { 
-    id 
-    Name 
+    Usernme
     Email 
     Password 
-    constructor(id, name, email, password) {
-        this.id = id 
-        this.Name = name 
+    constructor(username, email, password) {
+        this.Username = username
         this.Email = email 
         this.Password = password
     }
-    
 }
 module.exports = User

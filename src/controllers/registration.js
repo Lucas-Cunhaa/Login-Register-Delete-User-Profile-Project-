@@ -1,21 +1,16 @@
-let users = []
-let lastId = 0 
+const Db = require('../database/sequelize')
+const myDb = new Db()
+const User = require('../controllers/user')
+
 exports.postUser = (req, res) => {
-    
     try{
         console.log("API POST USER")
-        const { Username, Email, } = req.body; 
-
-        if(users.find(element => element.Username === Username  || element.Email === Email)) {
-            return res.status(409).json({ error: 'Username or Email alredy exist.' });
-            } 
-        const id = ++lastId
-        const user =  { Username, Email, id }
-        users.push(user)
-
-        res.status(200).send(user)
-        
+        const { Username, Email, Password } = req.body; 
+        const newUser = new User(Username, Email, Password)
+        myDb.addUser(Username, Email, Password)
+        console.log(newUser)
+        res.status(200).send(newUser)
     } catch(error) {
-        return res.status(500).json({ error: 'O usuário já existe.' });
+        return res.status(404).json({ error: 'O usuário já existe.' });
     }
 }

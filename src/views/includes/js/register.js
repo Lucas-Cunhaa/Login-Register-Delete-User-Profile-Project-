@@ -25,7 +25,7 @@ registerForm.addEventListener('submit', (e) => {
     const user = new User(username, email, password);
 
 
-    try{fetch("http://localhost:3030/myapp/register", {
+    fetch("http://localhost:3030/myapp/register", {
           method: 'POST',
           mode: 'cors',
           cache: 'no-cache',
@@ -41,13 +41,11 @@ registerForm.addEventListener('submit', (e) => {
       }).then(data => {
         console.log(data)
       }).catch(error => {
-        showErrorAlert(error.message)
+        console.log(error)
       })
 
    
-  }catch(error){
-    alert(error);
-  }
+ 
   
 })
 
