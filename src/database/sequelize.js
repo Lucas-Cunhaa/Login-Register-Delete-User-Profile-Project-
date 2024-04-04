@@ -66,7 +66,17 @@ class Db {
       
       data.forEach((element) => {
         console.log(element.toJSON());
-        
+      });
+      return data
+    } catch (error) {
+      console.error('Error while finding user:', error);
+    }
+  }
+  async verifyUser(myUsername, myEmail) {
+    try {
+      const data = await User.findAll({ where: { username: myUsername, email: myEmail } });
+      data.forEach((element) => {
+        console.log(element.toJSON());
       });
       return data
     } catch (error) {
