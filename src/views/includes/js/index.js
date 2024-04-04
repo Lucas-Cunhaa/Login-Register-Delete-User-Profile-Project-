@@ -28,7 +28,10 @@ loginForm.addEventListener('submit', (e) => {
       }).then(res => {
         return res.json()
       }).then(data => {
-        if( data.message === 'User found'){
+        if( data.message === 'Invalid User or Password'){
+          alert('Invalid username or password')
+        } else {
+          module.exports = data.message
           window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
         }
       }).catch( error => {

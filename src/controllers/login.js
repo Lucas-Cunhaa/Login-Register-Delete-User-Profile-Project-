@@ -11,10 +11,10 @@ exports.postLogin = async (req, res) => {
       
         if (users.length > 0) {
             console.log('User found');
-            res.status(200).json({ message: 'User found' });
+            res.status(200).json({ message: Username });
         } else {
             console.log('User not found');
-            res.status(404).json({ error: 'Invalid User or Password' });
+            res.status(404).json({ message: 'Invalid User or Password' });
         }
     } catch(error) {
         return res.status(404).json({ error});
