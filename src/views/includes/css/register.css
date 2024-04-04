@@ -37,8 +37,12 @@ q:before, q:after {
     content: '';
     content: none;
 }
+:root {
+    --body-color: rgb(35, 70, 145);
+    --form-color: aliceblue;
+  }
 body{
-    background-color: rgb(107, 147, 182);
+    background-color: var(--body-color)
 }
 h2{
     font-size: 30px;
@@ -57,15 +61,15 @@ h2{
     width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
     margin-top: 5vh;
     height: 50vh;
-    backdrop-filter: blur(20px);
-    background-color: aliceblue;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(30px);
+    background-color: var(--form-color);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3)
+    border: 1px solid rgba(0, 0, 0, 0.3)
     
 }
 
@@ -85,9 +89,17 @@ h2{
 }
 .register-button:hover{
     transition: 1s;
-    background-color: blueviolet;
+    background-color: var(--body-color)
 }
-
+.back-to-index{
+    text-decoration: none;
+    color: black;
+    margin-right: 75%;
+    margin-top: -105px;
+    margin-bottom: 50px;
+    width :30px ; 
+    height: 30px;
+}
 
 @media screen and (min-width: 700px){
     .register{
@@ -100,18 +112,25 @@ h2{
     }
     .register-button{
         margin: 3vh auto;
-        width: 11%;
+        width: 16%;
         border-radius: 30px;
         cursor: pointer;
     }
-    .register-button:hover{
-        transition: 1s;
-        background-color: blueviolet;
-    }
+ 
     .usernameInput,  .emailInput , .passwordInput{
         width: 33%;
         margin: 1vh auto;
         border-radius: 5px;
     }
+    .back-to-index{
+        text-decoration: none;
+        color: black;
+        margin-right: 75%;
+        margin-top: -100px;
+        margin-bottom: 100px;
+        width :30px ; 
+        height: 30px;
+    }
+    
    
 }

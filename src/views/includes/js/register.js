@@ -36,6 +36,9 @@ registerForm.addEventListener('submit', (e) => {
       }).then(res => {
         return res.json()
       }).then(data => {
+        if(data.message === 'Failed, User alredy exist'){
+          alert('ERROR user aredy exist')
+        }
         console.log(data)
       }).catch(error => {
         console.log(error)

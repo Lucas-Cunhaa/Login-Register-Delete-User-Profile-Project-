@@ -10,11 +10,11 @@ exports.postUser = async (req, res) => {
         const checkUser = await myDb.verifyUser(Username, Email)
         
         if(checkUser.length > 0){
-            res.status(409).json({ error: 'Failed, User alredy exist' })
+            res.status(409).send({ message: 'Failed, User alredy exist' })
         } else{
             await myDb.addUser(Username, Email, Password)
             console.log(newUser)
-            res.status(200).json(newUser)
+            res.status(200).send(newUser)
         }
         
     } catch(error) {

@@ -37,8 +37,12 @@ q:before, q:after {
     content: '';
     content: none;
 }
+:root {
+    --body-color: rgb(35, 70, 145);
+    --form-color: aliceblue
+  }
 body{
-    background-color: rgb(34, 77, 170);
+    background-color: var(--body-color);
 }
 
 h2{
@@ -60,9 +64,8 @@ h2{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     backdrop-filter: blur(30px);
-    background-color: aliceblue;
+    background-color: var(--form-color);
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3)
@@ -82,7 +85,7 @@ h2{
 }
 .login-button:hover{
     transition: 1s;
-    background-color: blueviolet;
+    background-color: var(--body-color)
 }
 .register-text{
     text-align: center;
@@ -101,14 +104,11 @@ h2{
     }
     .login-button{
         margin: 3vh auto;
-        width: 10%;
+        width: 15%;
         border-radius: 30px;
         cursor: pointer;
     }
-    .login-button:hover{
-        transition: 1s;
-        background-color: blueviolet;
-    }
+  
     .register-text{
         text-align: center;
         width: 100%;
