@@ -94,5 +94,17 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
+
+  async getUserInfos (myUsername) {
+    try {
+      const data = await User.findAll({ where: {username: myUsername }  });
+      data.forEach((element) => {
+        console.log(element.toJSON());
+      });
+      return data
+    } catch (error) {
+      console.error('Error while finding user:', error);
+    }
+  }
 }
 module.exports = Db;

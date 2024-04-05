@@ -11,7 +11,7 @@ fetch(`http://localhost:3030/myapp/profile:/${username}`, {
     },
     redirect: 'follow',
     referrerPolicy: 'no-referrer',
-    body: JSON.stringify(user)
+    body: JSON.stringify(username)
 }).then(res => {
   return res.json()
 }).then(data => {

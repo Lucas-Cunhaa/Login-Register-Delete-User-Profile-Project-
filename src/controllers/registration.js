@@ -14,7 +14,7 @@ exports.postUser = async (req, res) => {
         } else{
             await myDb.addUser(Username, Email, Password)
             console.log(newUser)
-            res.status(200).send(newUser)
+            res.status(200).send({ message : `User ${Username}` })
         }
         
     } catch(error) {

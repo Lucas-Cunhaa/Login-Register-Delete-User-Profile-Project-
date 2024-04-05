@@ -38,6 +38,9 @@ registerForm.addEventListener('submit', (e) => {
       }).then(data => {
         if(data.message === 'Failed, User alredy exist'){
           alert('ERROR user aredy exist')
+        } else {
+          alert(`User ${username} created`)
+          location.reload()
         }
         console.log(data)
       }).catch(error => {
