@@ -1,13 +1,12 @@
 const db = require ('../database/sequelize') 
 const myDb = new db
+
 exports.postLogin = async (req, res) => {
     try{
         console.log("API LOGIN USER")
         const { Username, Password } = req.body;
-        console.log(Username, Password)
 
         const users = await myDb.findUser(Username, Password)
-        console.log(users)
       
         if (users.length > 0) {
             console.log('User found');
@@ -20,4 +19,25 @@ exports.postLogin = async (req, res) => {
         return res.status(404).json({ error});
     }
 }
+let userData
+exports.getInfos = async (req, res) => {
+    try{
+        console.log("API GET USER INFOS ")
+        const username  = req.params.username
+        userData = await myDb.getUserInfos(username)
+       
+        res.status(200).send(data);
 
+    } catch(error) {
+         res.status(404).json({error});
+    }
+}
+exports.showInfos = async (req, res) => {
+    try{
+        console.log("API SHOW USER INFOS ")
+        console.log(data)
+        res.status(200).send(userData);
+    } catch(error) {
+         res.status(404).json({error});
+    }
+}

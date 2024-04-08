@@ -31,7 +31,10 @@ loginForm.addEventListener('submit', (e) => {
         if( data.message === 'Invalid User or Password'){
           alert('Invalid username or password')
         } else {
-          window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
+          fetch(`http://localhost:3030/myapp/profile/${usernameInput.value}`).then(res => { res.json()
+          }).then(data => {
+            window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
+          })
         }
       }).catch( error => {
         console.log(error)

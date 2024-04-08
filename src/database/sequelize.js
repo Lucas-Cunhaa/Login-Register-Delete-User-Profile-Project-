@@ -94,14 +94,14 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
-
   async getUserInfos (myUsername) {
     try {
-      const data = await User.findAll({ where: {username: myUsername }  });
+      const data = await User.findAll({ where: { username: myUsername }  });
       data.forEach((element) => {
         console.log(element.toJSON());
+        return element
       });
-      return data
+      
     } catch (error) {
       console.error('Error while finding user:', error);
     }
