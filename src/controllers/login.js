@@ -42,3 +42,13 @@ exports.showInfos = async (req, res) => {
          res.status(404).json({error});
     }
 }
+
+exports.deleteUser = async (req, res) => {
+    try{
+        console.log("API DELETE USER  ")
+        myDb.deleteUser(req.params.username)
+        res.status(200).send(userData);
+    } catch(error) {
+         res.status(404).json({error});
+    }
+}

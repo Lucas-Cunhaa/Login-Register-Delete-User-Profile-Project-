@@ -85,9 +85,7 @@ class Db {
   async deleteUser (myUser) {
     try {
       const data = await User.destroy({ where: { username: myUser } });
-      data.forEach((element) => {
-        console.log(element.toJSON());
-      });
+      console.log(`Deleted ${data} user(s)`);
       return data
     } catch (error) {
       console.error('Error while finding user:', error);
@@ -100,7 +98,6 @@ class Db {
         console.log(element.toJSON()); 
       });
       return data
-      
     } catch (error) {
       console.error('Error while finding user:', error);
     }
