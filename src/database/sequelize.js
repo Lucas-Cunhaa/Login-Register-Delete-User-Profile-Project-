@@ -63,7 +63,6 @@ class Db {
   async findUser (myUsername, myPassword) {
     try {
       const data = await User.findAll({ where: { username: myUsername, password: myPassword } });
-      
       data.forEach((element) => {
         console.log(element.toJSON());
       });
@@ -98,9 +97,9 @@ class Db {
     try {
       const data = await User.findAll({ where: { username: myUsername }  });
       data.forEach((element) => {
-        console.log(element.toJSON());
-        return element
+        console.log(element.toJSON()); 
       });
+      return data
       
     } catch (error) {
       console.error('Error while finding user:', error);

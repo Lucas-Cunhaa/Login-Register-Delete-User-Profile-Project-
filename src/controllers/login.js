@@ -25,6 +25,7 @@ exports.getInfos = async (req, res) => {
         console.log("API GET USER INFOS ")
         const username  = req.params.username
         userData = await myDb.getUserInfos(username)
+        console.log(userData)
        
         res.status(200).send(data);
 
@@ -35,7 +36,7 @@ exports.getInfos = async (req, res) => {
 exports.showInfos = async (req, res) => {
     try{
         console.log("API SHOW USER INFOS ")
-        console.log(data)
+        console.log(userData)
         res.status(200).send(userData);
     } catch(error) {
          res.status(404).json({error});
