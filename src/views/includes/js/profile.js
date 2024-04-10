@@ -1,5 +1,23 @@
 const divUser = document.querySelector(".username");
-const deleteForm = document.querySelector(".deleteProfile");
+const deleteForm = document.querySelector(".delete-form");
+const putForm = document.querySelector(".put-form")
+const usernameInput = document.querySelector('.usernameInput')
+const emailInput = document.querySelector('.emailInput')
+const passwordInput = document.querySelector('.passwordInput')
+
+let user;
+
+class User {
+  Username 
+  Email 
+  Password 
+  
+  constructor(username, email , password, ){
+      this.Username = username 
+      this.Email = email 
+      this.Password = password      
+  }
+}
 
 function showUsername(username) {
   const p = document.createElement("p");
@@ -7,7 +25,6 @@ function showUsername(username) {
   divUser.appendChild(p);
 }
 
-let user;
 
 fetch("http://localhost:3030/myapp/profile", {
   method: "GET",
@@ -55,5 +72,15 @@ fetch("http://localhost:3030/myapp/profile", {
       });
   });
 
+  putForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newUsername = usernameInput.value
+    const newEmail = emailInput.value
+    const newPassword = passwordInput.value
+
+    
+
+
+  })
  
 
