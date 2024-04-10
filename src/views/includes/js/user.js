@@ -23,9 +23,9 @@ fetch("http://localhost:3030/myapp/profile", {
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
-    data.forEach((user) => {
-      showUsername(user.username);
-      user = user.username;
+    data.forEach((element) => {
+      showUsername(element.username);
+      user = element.username;
     });
     
   })
