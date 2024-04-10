@@ -39,7 +39,8 @@ q:before, q:after {
 }
 :root {
     --body-color: rgb(35, 70, 145);
-    --form-color: aliceblue
+    --form-color: aliceblue;
+    --put-color : rgb(145, 165, 207);
   }
 body{
     background-color: var(--body-color);
@@ -48,7 +49,6 @@ body{
     flex-direction: column;
 }
 .content{
-    margin-top: 10vh;
     margin-left: 10px;
     height: 25vh;
     width: 100%;
@@ -94,14 +94,91 @@ h1{
     margin-left: 10px; 
     cursor: pointer;
 }
+.put{
+    background-color: var(--put-color);
+    backdrop-filter: blur(30px);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    width: 100%;
+    margin-top: 10vh;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+.delete{
+    width: 50%;
+    height: 10vh;
+    margin: 7vh auto;
+    background-color: var(--put-color);
+    backdrop-filter: blur(30px);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+.delete-profile{
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+.button-holder{
+    width: 50%;
+    font-size: 20px;
+}
 
+
+.put{
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 5vh;
+    
+}
+.putProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top: 5vh;
+   
+}
+.usernameInput,  .emailInput , .passwordInput{
+    width: 50%;
+    margin: 1vh auto;
+    border-radius: 5px;
+}
+.put-button{
+    margin: 3vh auto;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.put-button:hover{
+    transition: 1s;
+    background-color: var(--body-color)
+}
+.delete-svg:hover{
+    background-color: rgb(218, 66, 66);
+    transition: 1s;
+}
+h2{
+    font-size: 20px;
+}
 @media screen and (min-width: 700px){
     .content{
-        margin-top: 10vh;
         height: 30vh;
         width: 60%;
         align-items: center;
         display: flex;
+        flex-direction: row;
         backdrop-filter: blur(30px);
         background-color: var(--form-color);
         box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
@@ -125,12 +202,12 @@ h1{
         width :30px ; 
         height: 30px;
     }
-    .deleteProfile{ 
+    .delete-profile{ 
         margin-left: 50px;
         font-size: 20px;
-        margin-top: 50px;
+        margin-top: 30px;
         display: flex;
-        width: 30%;
+        width: 100%;
     }
     .delete-svg{
         fill: currentColor;
@@ -141,9 +218,39 @@ h1{
     }
     body{
         background-color: var(--body-color);
-        display: flex;
-        align-items: center;
+    }
+    .top {
         flex-direction: row;
     }
+    .delete{
+        width: 20%;
+    }
+    .put{
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 30%;
+        margin-top: 10vh;
+        margin-right: 60%;
+    }
+    .putProfile{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-top: 5vh;
+    }
+    .usernameInput,  .emailInput , .passwordInput{
+        width: 100%;
+        margin: 1vh auto;
+        border-radius: 5px;
+    }
+    h2{
+        font-size: 20px;
+    }
+
+    
    
 }

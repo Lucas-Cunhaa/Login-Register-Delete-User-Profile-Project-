@@ -102,5 +102,6 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
+  
 }
 module.exports = Db;
