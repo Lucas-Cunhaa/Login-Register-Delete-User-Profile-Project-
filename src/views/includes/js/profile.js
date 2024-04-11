@@ -101,8 +101,6 @@ fetch("http://localhost:3030/myapp/profile", {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        alert("User deleted");
-        window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/index.html";
       });
   }
 

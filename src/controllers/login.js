@@ -105,3 +105,25 @@ exports.changePassword = async (req, res) => {
     res.status(404).json({ error });
   }
 };
+
+exports.updateProfile= async (req, res) => {
+    try {
+      console.log(" API CHANGE PROFILE ");
+      const key = Object.keys(req.body)
+      console.log(key)
+
+      const checkTheChange = await myDb.changeProfile(
+        req.params.username,
+        key[0] ,
+        req.body[key]
+      );
+      console.log(checkTheChange)
+      if(checkTheChange.length > 0) {
+          res.status(200).json({ message: "Username has been updated" })
+      } else {
+          res.status(404).json({ error: "Error on updated the password", error });
+      }
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  };
