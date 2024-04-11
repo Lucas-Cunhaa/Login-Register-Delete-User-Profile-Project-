@@ -8,6 +8,7 @@ route.post('/myapp/login', controllerLogin.postLogin)
 route.get("/myapp/profile/:username", controllerLogin.getInfos)
 route.get("/myapp/profile", controllerLogin.showInfos)
 route.delete("/myapp/profile/:username", controllerLogin.deleteUser)
-route.put("myapp/profile/:username")
+route.put(`http://localhost:3030/myapp/profile/:username`, controllerLogin.)
+
 
 module.exports = route

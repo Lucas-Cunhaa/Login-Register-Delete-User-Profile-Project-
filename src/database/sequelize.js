@@ -46,7 +46,7 @@ class Db {
       console.error("Unable to connect to the database", error);
     }
   }
-  async addUser (myUsername, myEmail, myPassword) {
+  async registerProfile (myUsername, myEmail, myPassword) {
     try {
       const user = User.build({
         username: myUsername,
@@ -60,7 +60,7 @@ class Db {
     }
   }
 
-  async findUser (myUsername, myPassword) {
+  async findByUsernameAndPassword (myUsername, myPassword) {
     try {
       const data = await User.findAll({ where: { username: myUsername, password: myPassword } });
       data.forEach((element) => {
@@ -71,7 +71,7 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
-  async verifyUser (myUsername, myEmail) {
+  async findByUsernameAndEmail (myUsername, myEmail) {
     try {
       const data = await User.findAll({ where: { [Op.or] : {username: myUsername, email: myEmail } } });
       data.forEach((element) => {
@@ -91,7 +91,7 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
-  async getUserInfos (myUsername) {
+  async findByUsername (myUsername) {
     try {
       const data = await User.findAll({ where: { username: myUsername }  });
       data.forEach((element) => {
@@ -102,6 +102,30 @@ class Db {
       console.error('Error while finding user:', error);
     }
   }
+  async changeUsername (myUsername, typeToChange, newchange) {
+    try {
+      return User.update( {typeToChange: newchange}, {where: {username: myUsername} } )
+    } catch (error) {
+      console.error('Error while changing USERNAME:', error);
+    }
+  }
+  async changeEmail (myUsername,newEmail) {
+    try {
+      return User.update( {email: newEmail}, {where: {username: myUsername} } )
+    } catch (error) {
+      console.error('Error while changing EMAIL:', error);
+    }
+  }
+  async changePassword (myUsername, newPassword) {
+    try {
+      return User.update( {password: newPassword}, {where: {username: myUsername} } )
+    } catch (error) {
+      console.error('Error while changing PASSWORD:', error);
+    }
+  }
+  
+  
+  
   
 }
 module.exports = Db;

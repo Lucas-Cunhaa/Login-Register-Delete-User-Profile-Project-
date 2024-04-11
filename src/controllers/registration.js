@@ -7,12 +7,12 @@ exports.postUser = async (req, res) => {
         console.log("API POST USER")
         const { Username, Email, Password } = req.body; 
         
-        const checkUser = await myDb.verifyUser(Username, Email)
+        const checkUser = await myDb.findByUsernameAndEmail(Username, Email)
         
         if(checkUser.length > 0){
             res.status(409).send({ message: 'Failed, User alredy exist' })
         } else{
-            await myDb.addUser(Username, Email, Password)
+            await myDb.registerProfile(Username, Email, Password)
             console.log(newUser)
             res.status(200).send({ message : `User ${Username}` })
         }

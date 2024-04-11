@@ -1,54 +1,107 @@
-const db = require ('../database/sequelize') 
-const myDb = new db
+const db = require("../database/sequelize");
+const myDb = new db();
 
 exports.postLogin = async (req, res) => {
-    try{
-        console.log("API LOGIN USER")
-        const { Username, Password } = req.body;
+  try {
+    console.log("API LOGIN USER");
+    const { Username, Password } = req.body;
 
-        const users = await myDb.findUser(Username, Password)
-      
-        if (users.length > 0) {
-            console.log('User found');
-            res.status(200).json({ message: Username });
-        } else {
-            console.log('User not found');
-            res.status(404).json({ message: 'Invalid User or Password' });
-        }
-    } catch(error) {
-        return res.status(404).json({ error});
+    const users = await myDb.findByUsernameAndPassword(Username, Password);
+
+    if (users.length > 0) {
+      console.log("User found");
+      res.status(200).json({ message: Username });
+    } else {
+      console.log("User not found");
+      res.status(404).json({ message: "Invalid User or Password" });
     }
-}
-let userData
+  } catch (error) {
+    return res.status(404).json({ error });
+  }
+};
+let userData;
 exports.getInfos = async (req, res) => {
-    try{
-        console.log("API GET USER INFOS ")
-        const username  = req.params.username
-        userData = await myDb.getUserInfos(username)
-        console.log(userData)
-       
-        res.status(200).send(data);
+  try {
+    console.log("API GET PROFILE INFOS ");
+    const username = req.params.username;
+    userData = await myDb.findByUsername(username);
+    console.log(userData);
 
-    } catch(error) {
-         res.status(404).json({error});
-    }
-}
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
 exports.showInfos = async (req, res) => {
-    try{
-        console.log("API SHOW USER INFOS ")
-        console.log(userData)
-        res.status(200).send(userData);
-    } catch(error) {
-         res.status(404).json({error});
-    }
-}
+  try {
+    console.log("API SHOW PROFILE INFOS ");
+    console.log(userData);
+    res.status(200).send(userData);
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
 
 exports.deleteUser = async (req, res) => {
-    try{
-        console.log("API DELETE USER  ")
-        myDb.deleteUser(req.params.username)
-        res.status(200).send(userData);
-    } catch(error) {
-         res.status(404).json({error});
+  try {
+    console.log("API DELETE PROFILE ");
+    myDb.deleteUser(req.params.username);
+    res.status(200).send(userData);
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
+exports.changeUsername = async (req, res) => {
+  try {
+    console.log(" API CHANGE USERNAME ");
+
+    const checkTheChange = await myDb.changeUsername(
+      req.params.username,
+      req.body.username
+    );
+    if(checkTheChange.length > 0) {
+        res.status(200).json({ message: "Username has been updated" })
+    } else {
+        res.status(404).json({ error: "Error on updated the username ", error });
     }
-}
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
+
+exports.changeEmail = async (req, res) => {
+  try {
+    console.log(" API CHANGE EMAIL ");
+
+    const checkTheChange = await myDb.changeUsername(
+      req.params.username,
+      req.body.email
+    );
+    if(checkTheChange.length > 0) {
+        res.status(200).json({ message: "Username has been updated" })
+    } else {
+        res.status(404).json({ error: "Error on updated the email", error });
+    }
+
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
+
+exports.changePassword = async (req, res) => {
+  try {
+    console.log(" API CHANGE PASSWORD ");
+
+    const checkTheChange = await myDb.changeUsername(
+      req.params.username,
+      req.body.password
+    );
+    if(checkTheChange.length > 0) {
+        res.status(200).json({ message: "Username has been updated" })
+    } else {
+        res.status(404).json({ error: "Error on updated the password", error });
+    }
+  } catch (error) {
+    res.status(404).json({ error });
+  }
+};
