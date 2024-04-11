@@ -119,7 +119,7 @@ exports.updateProfile= async (req, res) => {
       );
       console.log(checkTheChange)
       if(checkTheChange.length > 0) {
-          res.status(200).json({ message: "Username has been updated" })
+          res.status(200).json({ message: "Your profile has been updated" })
       } else {
           res.status(404).json({ error: "Error on updated the password", error });
       }

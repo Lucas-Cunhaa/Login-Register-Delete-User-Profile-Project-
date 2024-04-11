@@ -10,6 +10,7 @@ const emailInput = document.querySelector('.emailInput')
 const passwordForm = document.querySelector('.password-form')
 const passwordInput = document.querySelector('.passwordInput')
 
+
 let user;
 
 
@@ -100,7 +101,8 @@ fetch("http://localhost:3030/myapp/profile", {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        alert(data.message);
+        user = usernameInput
       });
   }
 
