@@ -32,10 +32,7 @@ loginForm.addEventListener('submit', (e) => {
           alert('Invalid username or password')
         } else {
           sessionStorage.setItem("username", usernameInput.value )
-          .then(res => { res.json()
-          }).then(data => {
-            window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
-          })
+          window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
         }
       }).catch( error => {
         console.log(error)

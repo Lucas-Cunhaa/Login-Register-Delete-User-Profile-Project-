@@ -28,61 +28,6 @@ exports.deleteUser = async (req, res) => {
     res.status(404).json({ error });
   }
 };
-exports.changeUsername = async (req, res) => {
-  try {
-    console.log(" API CHANGE USERNAME ");
-
-    const checkTheChange = await myDb.changeUsername(
-      req.params.username,
-      req.body.username
-    );
-    if(checkTheChange.length > 0) {
-        res.status(200).json({ message: "Username has been updated" })
-    } else {
-        res.status(404).json({ error: "Error on updated the username ", error });
-    }
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-};
-
-exports.changeEmail = async (req, res) => {
-  try {
-    console.log(" API CHANGE EMAIL ");
-
-    const checkTheChange = await myDb.changeUsername(
-      req.params.username,
-      req.body.email
-    );
-    if(checkTheChange.length > 0) {
-        res.status(200).json({ message: "Username has been updated" })
-    } else {
-        res.status(404).json({ error: "Error on updated the email", error });
-    }
-
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-};
-
-exports.changePassword = async (req, res) => {
-  try {
-    console.log(" API CHANGE PASSWORD ");
-
-    const checkTheChange = await myDb.changeUsername(
-      req.params.username,
-      req.body.password
-    );
-    if(checkTheChange.length > 0) {
-        res.status(200).json({ message: "Username has been updated" })
-    } else {
-        res.status(404).json({ error: "Error on updated the password", error });
-    }
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-};
-
 exports.updateProfile= async (req, res) => {
     try {
       console.log(" API CHANGE PROFILE ");

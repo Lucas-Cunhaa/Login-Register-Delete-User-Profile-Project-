@@ -12,8 +12,7 @@ const passwordInput = document.querySelector('.passwordInput')
 
 
 let user = sessionStorage.getItem("username")
-
-
+let change;
 
 function showUsername(username) {
   const p = document.createElement("p");
@@ -49,17 +48,21 @@ showUsername(user)
     e.preventDefault()
     const newUsername = {username: usernameInput.value}
     putFetch(newUsername)
+    change = "username"; 
   })
 
   emailForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const newEmail = {email: emailInput.value}
+    change = "email";
     putFetch(newEmail)
+    
   })
  
   passwordForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const newPassword = {password: passwordInput.value}
+    change = "password";
     putFetch(newPassword)
   })
   
@@ -79,7 +82,8 @@ showUsername(user)
       .then((res) => res.json())
       .then((data) => {
         sessionStorage.setItem("username", usernameInput.value );
-        alert(data.message);
+        alert(`Your ${change} has been updated`);
+        location.reload()
       });
   }
 
