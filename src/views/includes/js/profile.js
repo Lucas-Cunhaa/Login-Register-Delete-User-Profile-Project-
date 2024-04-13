@@ -11,7 +11,7 @@ const passwordForm = document.querySelector('.password-form')
 const passwordInput = document.querySelector('.passwordInput')
 
 
-let user;
+let user = sessionStorage.getItem("username")
 
 
 
@@ -19,32 +19,9 @@ function showUsername(username) {
   const p = document.createElement("p");
   p.textContent = username;
   divUser.appendChild(p);
-}
+} 
 
-
-fetch("http://localhost:3030/myapp/profile", {
-  method: "GET",
-  mode: "cors",
-  cache: "no-cache",
-  credentials: "same-origin",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  redirect: "follow",
-  referrerPolicy: "no-referrer",
-})
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    data.forEach((element) => {
-      showUsername(element.username);
-      user = element.username;
-    });
-    
-  })
-  .catch((error) => {
-    console.error("ERROR:", error);
-  });
+showUsername(user)
 
   deleteForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -101,8 +78,8 @@ fetch("http://localhost:3030/myapp/profile", {
     })
       .then((res) => res.json())
       .then((data) => {
+        sessionStorage.setItem("username", usernameInput.value );
         alert(data.message);
-        user = usernameInput
       });
   }
 

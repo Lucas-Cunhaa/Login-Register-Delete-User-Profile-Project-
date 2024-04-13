@@ -5,8 +5,6 @@ const controllerRegister = require('./src/controllers/registration.js')
 
 route.post('/myapp/register', controllerRegister.postUser)
 route.post('/myapp/login', controllerLogin.postLogin)
-route.get("/myapp/profile/:username", controllerLogin.getInfos)
-route.get("/myapp/profile", controllerLogin.showInfos)
 route.delete("/myapp/profile/:username", controllerLogin.deleteUser)
 route.put("/myapp/profile/:username", controllerLogin.updateProfile)
 

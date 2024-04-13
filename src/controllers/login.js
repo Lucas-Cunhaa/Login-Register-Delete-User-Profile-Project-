@@ -19,29 +19,6 @@ exports.postLogin = async (req, res) => {
     return res.status(404).json({ error });
   }
 };
-let userData;
-exports.getInfos = async (req, res) => {
-  try {
-    console.log("API GET PROFILE INFOS ");
-    const username = req.params.username;
-    userData = await myDb.findByUsername(username);
-    console.log(userData);
-
-    res.status(200).send(data);
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-};
-exports.showInfos = async (req, res) => {
-  try {
-    console.log("API SHOW PROFILE INFOS ");
-    console.log(userData);
-    res.status(200).send(userData);
-  } catch (error) {
-    res.status(404).json({ error });
-  }
-};
-
 exports.deleteUser = async (req, res) => {
   try {
     console.log("API DELETE PROFILE ");
