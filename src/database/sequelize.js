@@ -48,13 +48,13 @@ class Db {
   }
   async registerProfile(myUsername, myEmail, myPassword) {
     try {
-      const user = User.build({
+      const user = await User.create({
         username: myUsername,
         email: myEmail,
         password: myPassword,
       });
       console.log(user.toJSON());
-      return user.save();
+      return user
     } catch (error) {
       console.error(error);
     }
