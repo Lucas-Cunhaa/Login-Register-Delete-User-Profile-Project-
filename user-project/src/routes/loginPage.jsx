@@ -2,8 +2,8 @@ import Button from "../components/Atoms/button";
 import Input from "../components/Atoms/input"; 
 import { useState } from 'react';
 import User from '../components/organism/User'
-import './login.css';
 import NavBar from "../components/organism/navBar";
+import '../css/login.css'
 
 
 const Form = () => {
