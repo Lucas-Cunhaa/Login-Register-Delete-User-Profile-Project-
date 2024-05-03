@@ -1,0 +1,138 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+:root {
+    --body-color: rgb(35, 70, 145);
+    --form-color: aliceblue
+  }
+body{
+    background-color: var(--body-color);
+}
+
+h1 {
+    font-size: 35px;
+    color: light dark;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 3px 3px 2pc rgba(0, 0, 0, 0.25);
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.login{
+    margin-top: 5vh;
+    width: 75%; 
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backdrop-filter: blur(30px);
+    background-color: var(--form-color);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center
+    
+}
+input {
+    width: 50%;
+    margin: 1vh auto;
+    border-radius: 5px;
+}
+
+.login-button{
+    margin: 3vh auto;
+    width: 25%;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.login-button:hover{
+    transition: 1s;
+    background-color: var(--body-color)
+}
+.register-text{
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 2.5vh ;
+
+}
+.navBar{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+a.navBar{
+    width: 100%;
+    
+}
+
+@media screen and (min-width: 700px){
+    .login{
+        display: flex;
+        flex-direction: column;
+        margin-top: 5vh;
+        width: 50%;
+    }
+    .login-button{
+        margin: 3vh auto;
+        width: 15%;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+  
+    .register-text{
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        margin-top: 2.5vh ;
+    
+    }
+    .usernameInput , .passwordInput {
+        width: 25%;
+        margin: 1vh auto;
+        border-radius: 5px;
+    }
+}

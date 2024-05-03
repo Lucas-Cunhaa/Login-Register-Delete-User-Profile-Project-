@@ -1,7 +1,9 @@
-import Button from "../Atoms/button"; 
-import Input from "../Atoms/input"; 
+import Button from "../components/Atoms/button"; 
+import Input from "../components/Atoms/input"; 
 import { useState } from 'react';
-import User from './User'
+import User from '../components/organism/User'
+import './login.css';
+import NavBar from "../components/organism/navBar";
 
 
 const Form = () => {
@@ -29,7 +31,7 @@ const Form = () => {
           alert('Invalid username or password')
         } else {
           sessionStorage.setItem("username", username)
-          window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/profile.html"
+          window.location.href = "http://localhost:5173/profile"
         }
       }).catch( error => {
         console.log(error)
@@ -52,6 +54,7 @@ const Form = () => {
                 <Input onChange={(e) =>{handleChangeUsername(e)} } value={username} type="text" placeholder="Username" />
                 <Input onChange={(e) =>{handleChangePassword(e)} } value={password} type="password" placeholder="Password"/> 
                 <Button type="submit" className="login-button">Submit</Button>
+                <NavBar link='/register'> Do not have an account ? register HERE </NavBar>
             </form>
         </section>
         </>

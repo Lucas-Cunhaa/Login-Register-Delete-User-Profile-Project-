@@ -1,9 +1,7 @@
-import FormLogin from "../src/organism/formLogin";
-
+import FormLogin from "./routes/loginPage";
 const App = () => {
   return (
     <>
-      <h1> oi tudo bom</h1>
       <FormLogin/>
     </>
   );
