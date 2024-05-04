@@ -62,9 +62,9 @@ const FormRegister = () => {
 
     return (
         <>
-        <section className="content">
+        <section className="content-form">
            
-            <h1>Register</h1>
+            <h1 className="h1-form">Register</h1>
             <form className="login" method="GET" onSubmit={handleSubmit}>
                 <Input onChange={(e) =>{handleSetUsername(e)} } value={username} type="text" placeholder="Username" />
                 <Input onChange={(e) =>{handleSetEmail(e)} } value={email} type="eamil" placeholder="Email"/> 

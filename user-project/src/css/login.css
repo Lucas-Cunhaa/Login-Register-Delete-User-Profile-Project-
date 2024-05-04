@@ -45,14 +45,14 @@ body{
     background-color: var(--body-color);
 }
 
-h1 {
+.h1-form {
     font-size: 35px;
     color: light dark;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-shadow: 3px 3px 2pc rgba(0, 0, 0, 0.25);
 }
 
-.content{
+.content-form{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@ h1 {
     text-align: center
     
 }
-input {
+.input-form {
     width: 50%;
     margin: 1vh auto;
     border-radius: 5px;

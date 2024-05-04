@@ -47,9 +47,9 @@ const Form = () => {
 
     return (
         <>
-        <section className="content">
+        <section className="content-form">
            
-            <h1>Login form</h1>
+            <h1 className="h1-form">Login form</h1>
             <form className="login" method="GET" onSubmit={handleSubmit}>
                 <Input onChange={(e) =>{handleChangeUsername(e)} } value={username} type="text" placeholder="Username" />
                 <Input onChange={(e) =>{handleChangePassword(e)} } value={password} type="password" placeholder="Password"/> 
