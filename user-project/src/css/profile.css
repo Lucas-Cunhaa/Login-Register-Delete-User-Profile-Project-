@@ -95,6 +95,11 @@ q:before, q:after {
     margin-left: 10px; 
     cursor: pointer;
 }
+.input-form {
+    width: 50%;
+    margin: 1vh auto;
+    border-radius: 5px;
+}
 
 
 .top {
@@ -127,8 +132,6 @@ q:before, q:after {
     width: 50%;
     font-size: 20px;
 }
-
-
 .put{
     height: 35vh;
     display: flex;
@@ -154,26 +157,10 @@ q:before, q:after {
    
 }
 
-.username-form{
-    display: flex;
-}
-.email-form{
-    display: flex;
-}
-.password-form{
-    display: flex;
-}
-
-.usernameInput,  .emailInput , .passwordInput{
-    width: 50%;
-    margin: 1vh auto;
-    border-radius: 5px;
-}
 .put-button{
     margin: 3vh 20px;
     border-radius: 30px;
     cursor: pointer;
-
 }
 .put-button:hover{
     transition: 1s;
@@ -260,7 +247,7 @@ h2{
     }
   
     h2{
-        font-size: 20px;
+        font-size: 25px;
     }
 
     

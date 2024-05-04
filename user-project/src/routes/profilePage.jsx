@@ -64,7 +64,7 @@ const handleChangePassword = (e) => {
     putFetch(newPassword)
 }
 const handleDeleteProfile = (e) => {
-   e.prevent.default() 
+   e.preventDefault() 
    console.log(user)
    fetch(`http://localhost:3030/myapp/profile/${user}`, {
      method: "DELETE",
@@ -81,7 +81,7 @@ const handleDeleteProfile = (e) => {
      .then((data) => {
        console.log(data);
        alert("User deleted");
-       window.location.href = "http://127.0.0.1:5500/myProject/src/views/includes/html/index.html";
+       window.location.href = "http://localhost:5173";
      });
 
 }
@@ -95,16 +95,12 @@ const handleDeleteProfile = (e) => {
           <div className="username"></div>
         </div>
         <div className="delete">
-          <form className="delete-form" method="DELETE" onSubmit={ (e) => {handleDeleteProfile(e)}}>
-            <input
-              className="delete-button"
-              id="button"
-              type="submit"
-              value="Submit"
-            />
-            <p className="button-holder">Delete</p>
-            <label htmlFor="delete-button">
-              <svg
+
+          <form className="delete-form" method="DELETE" onSubmit={handleDeleteProfile}>
+          <p className="button-holder">Delete</p>
+            <Button className="delete-button"></Button>
+          <label htmlFor="button">
+          <svg
                 className="delete-svg"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -115,8 +111,8 @@ const handleDeleteProfile = (e) => {
                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
               </svg>
-            </label>
-          </form>
+          </label>
+         </form>
         </div>
       </section>
 
@@ -131,7 +127,7 @@ const handleDeleteProfile = (e) => {
             type="text"
             placeholder="Username"
           />
-          <Button type="submit" className="button-username">
+          <Button type="submit" className="put-button">
             Submit
           </Button>
         </form>
@@ -145,7 +141,7 @@ const handleDeleteProfile = (e) => {
             type="email"
             placeholder="Email"
           />
-          <Button type="submit" className="button-email">
+          <Button type="submit" className="put-button">
             Submit
           </Button>
         </form>
@@ -158,7 +154,7 @@ const handleDeleteProfile = (e) => {
             type="password"
             placeholder="Password"
           />
-          <Button type="submit" className="password-button">
+          <Button type="submit" className="put-button">
             Submit
           </Button>
         </form>
