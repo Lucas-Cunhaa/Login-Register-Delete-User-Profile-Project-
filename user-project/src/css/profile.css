@@ -69,15 +69,6 @@ q:before, q:after {
 .username{
     font-size: 30px;
 }
-.back-to-index{
-    text-decoration: none;
-    color: black;
-    margin-right: 75%;
-    margin-top: -105px;
-    margin-bottom: 65px;
-    width :25px ; 
-    height: 20px;
-}
 .delete-button{
     display:none
   }
@@ -161,7 +152,7 @@ q:before, q:after {
     margin: 3vh 20px;
     border-radius: 30px;
     cursor: pointer;
-}
+}             
 .put-button:hover{
     transition: 1s;
     background-color: var(--body-color)

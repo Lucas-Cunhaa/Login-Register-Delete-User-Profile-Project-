@@ -36,7 +36,7 @@ exports.updateProfile= async (req, res) => {
 
       const checkTheChange = await myDb.changeProfile(
         req.params.username,
-        key[0] ,
+        key[0],
         req.body[key]
       );
       console.log(checkTheChange)
